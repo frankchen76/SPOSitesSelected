@@ -1,264 +1,269 @@
 {
-	"info": {
-		"_postman_id": "d4af11b2-c683-4d27-9bf5-7e7d67f7f8d9",
-		"name": "Sites.Selected Operator",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "1091856"
-	},
-	"item": [
-		{
-			"name": "Site - ListSelectedPermissions",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"pm.variables.set(\"r_siteId\", \"m365x725618.sharepoint.com:/sites/FrankCommunication2:\");"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://graph.microsoft.com/v1.0/sites/{{r_siteId}}/permissions",
-					"protocol": "https",
-					"host": [
-						"graph",
-						"microsoft",
-						"com"
-					],
-					"path": [
-						"v1.0",
-						"sites",
-						"{{r_siteId}}",
-						"permissions"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Site - ListSelectedPermissionById",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"pm.variables.set(\"r_siteId\", \"m365x725618.sharepoint.com:/sites/FrankCommunication2:\");",
-							"pm.variables.set(\"r_permissionId\", \"aTowaS50fG1zLnNwLmV4dHxlMjI4ZGM4Yi0zOTliLTQ2N2QtYmMyNC0yMTU2NzA2YjRiODdAOGE1ZWUzNTctN2RlMC00ODM2LWFiMjAtOTE3M2IxMmNkY2U5\");",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://graph.microsoft.com/v1.0/sites/{{r_siteId}}/permissions/aTowaS50fG1zLnNwLmV4dHwyOTNjMTdkZi1hNjBkLTRkNDEtYTVhMi1hM2Q1NDlmZDU4YzFAOGE1ZWUzNTctN2RlMC00ODM2LWFiMjAtOTE3M2IxMmNkY2U5",
-					"protocol": "https",
-					"host": [
-						"graph",
-						"microsoft",
-						"com"
-					],
-					"path": [
-						"v1.0",
-						"sites",
-						"{{r_siteId}}",
-						"permissions",
-						"aTowaS50fG1zLnNwLmV4dHwyOTNjMTdkZi1hNjBkLTRkNDEtYTVhMi1hM2Q1NDlmZDU4YzFAOGE1ZWUzNTctN2RlMC00ODM2LWFiMjAtOTE3M2IxMmNkY2U5"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Site - AddSelectedPermissions",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"pm.variables.set(\"r_siteId\", \"m365x725618.sharepoint.com:/sites/FrankCommunication2:\");",
-							"pm.variables.set(\"r_appId\", \"e228dc8b-399b-467d-bc24-2156706b4b87\");"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"roles\": [\"read\"],\r\n  \"grantedToIdentities\": [{\r\n    \"application\": {\r\n      \"id\": \"{{r_appId}}\",\r\n      \"displayName\": \"SitesSelected.Test\"\r\n    }\r\n  }]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://graph.microsoft.com/v1.0/sites/{{r_siteId}}/permissions",
-					"protocol": "https",
-					"host": [
-						"graph",
-						"microsoft",
-						"com"
-					],
-					"path": [
-						"v1.0",
-						"sites",
-						"{{r_siteId}}",
-						"permissions"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Site - DeleteSelectedPermissions",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							"pm.variables.set(\"r_siteId\", \"m365x725618.sharepoint.com:/sites/FrankCommunication2:\");",
-							"pm.variables.set(\"r_permissionId\", \"aTowaS50fG1zLnNwLmV4dHxlMjI4ZGM4Yi0zOTliLTQ2N2QtYmMyNC0yMTU2NzA2YjRiODdAOGE1ZWUzNTctN2RlMC00ODM2LWFiMjAtOTE3M2IxMmNkY2U5\");"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "https://graph.microsoft.com/v1.0/sites/{{r_siteId}}/permissions/{{r_permissionId}}",
-					"protocol": "https",
-					"host": [
-						"graph",
-						"microsoft",
-						"com"
-					],
-					"path": [
-						"v1.0",
-						"sites",
-						"{{r_siteId}}",
-						"permissions",
-						"{{r_permissionId}}"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"auth": {
-		"type": "oauth2",
-		"oauth2": [
-			{
-				"key": "clientSecret",
-				"value": "{{c_ClientSecret}}",
-				"type": "string"
-			},
-			{
-				"key": "clientId",
-				"value": "{{c_ClientId}}",
-				"type": "string"
-			},
-			{
-				"key": "client_authentication",
-				"value": "body",
-				"type": "string"
-			},
-			{
-				"key": "grant_type",
-				"value": "client_credentials",
-				"type": "string"
-			},
-			{
-				"key": "scope",
-				"value": "https://graph.microsoft.com/.default",
-				"type": "string"
-			},
-			{
-				"key": "accessTokenUrl",
-				"value": "https://login.microsoftonline.com/m365x725618.onmicrosoft.com/oauth2/v2.0/token",
-				"type": "string"
-			},
-			{
-				"key": "tokenName",
-				"value": "Sites.Selected Token",
-				"type": "string"
-			},
-			{
-				"key": "challengeAlgorithm",
-				"value": "S256",
-				"type": "string"
-			},
-			{
-				"key": "state",
-				"value": "12345",
-				"type": "string"
-			},
-			{
-				"key": "redirect_uri",
-				"value": "https://app.getpostman.com/oauth2/callback",
-				"type": "string"
-			},
-			{
-				"key": "authUrl",
-				"value": "{{c_authUrl}}",
-				"type": "string"
-			},
-			{
-				"key": "addTokenTo",
-				"value": "header",
-				"type": "string"
-			}
-		]
-	},
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "c_ClientId",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"key": "c_ClientSecret",
-			"value": "",
-			"type": "string"
-		}
-	]
+    "info": {
+        "_postman_id": "d4af11b2-c683-4d27-9bf5-7e7d67f7f8d9",
+        "name": "Sites.Selected Operator",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "1091856"
+    },
+    "item": [
+        {
+            "name": "Site - ListSelectedPermissions",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [
+                            "pm.variables.set(\"r_siteId\", \"m365x725618.sharepoint.com:/sites/FrankCommunication2:\");"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://graph.microsoft.com/v1.0/sites/{{r_siteId}}/permissions",
+                    "protocol": "https",
+                    "host": [
+                        "graph",
+                        "microsoft",
+                        "com"
+                    ],
+                    "path": [
+                        "v1.0",
+                        "sites",
+                        "{{r_siteId}}",
+                        "permissions"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Site - ListSelectedPermissionById",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [
+                            "pm.variables.set(\"r_siteId\", \"m365x725618.sharepoint.com:/sites/FrankCommunication2:\");",
+                            "pm.variables.set(\"r_permissionId\", \"aTowaS50fG1zLnNwLmV4dHxlMjI4ZGM4Yi0zOTliLTQ2N2QtYmMyNC0yMTU2NzA2YjRiODdAOGE1ZWUzNTctN2RlMC00ODM2LWFiMjAtOTE3M2IxMmNkY2U5\");",
+                            ""
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://graph.microsoft.com/v1.0/sites/{{r_siteId}}/permissions/aTowaS50fG1zLnNwLmV4dHwyOTNjMTdkZi1hNjBkLTRkNDEtYTVhMi1hM2Q1NDlmZDU4YzFAOGE1ZWUzNTctN2RlMC00ODM2LWFiMjAtOTE3M2IxMmNkY2U5",
+                    "protocol": "https",
+                    "host": [
+                        "graph",
+                        "microsoft",
+                        "com"
+                    ],
+                    "path": [
+                        "v1.0",
+                        "sites",
+                        "{{r_siteId}}",
+                        "permissions",
+                        "aTowaS50fG1zLnNwLmV4dHwyOTNjMTdkZi1hNjBkLTRkNDEtYTVhMi1hM2Q1NDlmZDU4YzFAOGE1ZWUzNTctN2RlMC00ODM2LWFiMjAtOTE3M2IxMmNkY2U5"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Site - AddSelectedPermissions",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [
+                            "pm.variables.set(\"r_siteId\", \"m365x725618.sharepoint.com:/sites/FrankCommunication2:\");",
+                            "pm.variables.set(\"r_appId\", \"e228dc8b-399b-467d-bc24-2156706b4b87\");"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"roles\": [\"read\"],\r\n  \"grantedToIdentities\": [{\r\n    \"application\": {\r\n      \"id\": \"{{r_appId}}\",\r\n      \"displayName\": \"SitesSelected.Test\"\r\n    }\r\n  }]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://graph.microsoft.com/v1.0/sites/{{r_siteId}}/permissions",
+                    "protocol": "https",
+                    "host": [
+                        "graph",
+                        "microsoft",
+                        "com"
+                    ],
+                    "path": [
+                        "v1.0",
+                        "sites",
+                        "{{r_siteId}}",
+                        "permissions"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Site - DeleteSelectedPermissions",
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [
+                            "pm.variables.set(\"r_siteId\", \"m365x725618.sharepoint.com:/sites/FrankCommunication2:\");",
+                            "pm.variables.set(\"r_permissionId\", \"aTowaS50fG1zLnNwLmV4dHxlMjI4ZGM4Yi0zOTliLTQ2N2QtYmMyNC0yMTU2NzA2YjRiODdAOGE1ZWUzNTctN2RlMC00ODM2LWFiMjAtOTE3M2IxMmNkY2U5\");"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "https://graph.microsoft.com/v1.0/sites/{{r_siteId}}/permissions/{{r_permissionId}}",
+                    "protocol": "https",
+                    "host": [
+                        "graph",
+                        "microsoft",
+                        "com"
+                    ],
+                    "path": [
+                        "v1.0",
+                        "sites",
+                        "{{r_siteId}}",
+                        "permissions",
+                        "{{r_permissionId}}"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "auth": {
+        "type": "oauth2",
+        "oauth2": [
+            {
+                "key": "accessTokenUrl",
+                "value": "https://login.microsoftonline.com/{{c_TenantName}}/oauth2/v2.0/token",
+                "type": "string"
+            },
+            {
+                "key": "clientSecret",
+                "value": "{{c_ClientSecret}}",
+                "type": "string"
+            },
+            {
+                "key": "clientId",
+                "value": "{{c_ClientId}}",
+                "type": "string"
+            },
+            {
+                "key": "client_authentication",
+                "value": "body",
+                "type": "string"
+            },
+            {
+                "key": "grant_type",
+                "value": "client_credentials",
+                "type": "string"
+            },
+            {
+                "key": "scope",
+                "value": "https://graph.microsoft.com/.default",
+                "type": "string"
+            },
+            {
+                "key": "tokenName",
+                "value": "Sites.Selected Token",
+                "type": "string"
+            },
+            {
+                "key": "challengeAlgorithm",
+                "value": "S256",
+                "type": "string"
+            },
+            {
+                "key": "state",
+                "value": "12345",
+                "type": "string"
+            },
+            {
+                "key": "redirect_uri",
+                "value": "https://app.getpostman.com/oauth2/callback",
+                "type": "string"
+            },
+            {
+                "key": "authUrl",
+                "value": "{{c_authUrl}}",
+                "type": "string"
+            },
+            {
+                "key": "addTokenTo",
+                "value": "header",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "c_TenantName",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "key": "c_ClientId",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "key": "c_ClientSecret",
+            "value": "",
+            "type": "string"
+        }
+    ]
 }
